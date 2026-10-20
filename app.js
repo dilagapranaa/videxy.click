@@ -42,10 +42,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (playerPageEl) playerPageEl.style.display = 'flex';
     }
 
-    // Overlay untuk intercept klik pertama (agar iklan bisa terpicu)
-    const overlay1 = document.getElementById('overlay-layer-1');
-    if (overlay1) overlay1.style.display = 'none';
-
     try {
         // FETCH DATA VIDEO DARI API PUSAT
         const response = await fetch(`${CONFIG.API_BASE_URL}/api/video/${videoSlug}`);
@@ -133,37 +129,11 @@ document.addEventListener('DOMContentLoaded', async function () {
         statusEl.style.display = 'none';
         if (videoContainer) videoContainer.style.display = 'block';
 
-        // Tampilkan overlay agar klik pertama user terjadi di level document (trigger iklan)
-        if (overlay1) {
-            overlay1.style.display = 'flex';
-        }
-
-        // Klik overlay = sembunyikan overlay + play video
-        if (overlay1) {
-            overlay1.addEventListener('click', function () {
-                overlay1.style.display = 'none';
-                if (mainVideo) {
-                    mainVideo.play().catch(err => console.log('Auto-play gagal:', err));
-                }
-            });
-        }
-
-        // Tampilkan overlay lagi saat video di-pause (agar interaksi berikutnya juga trigger iklan)
-        if (mainVideo) {
-            mainVideo.addEventListener('pause', function () {
-                if (overlay1) overlay1.style.display = 'flex';
-            });
-            mainVideo.addEventListener('play', function () {
-                if (overlay1) overlay1.style.display = 'none';
-            });
-        }
-
         // Fetch Recommendations
         fetchRecommendations(1);
 
     } catch (error) {
         console.error(error);
-        if (overlay1) overlay1.style.display = 'none';
         statusEl.innerHTML = '⚠️ Video tidak ditemukan atau Server Pusat sedang gangguan.';
         titleEl.innerHTML = 'Error';
     }
