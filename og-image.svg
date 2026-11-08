@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="628" viewBox="0 0 1200 628">
+  <!-- Background -->
+  <rect width="1200" height="628" fill="#0d1117"/>
+
+  <!-- Accent gradient bar top -->
+  <rect width="1200" height="6" fill="#4B3B9D"/>
+
+  <!-- Play icon circle -->
+  <circle cx="150" cy="314" r="80" fill="#4B3B9D" opacity="0.9"/>
+  <polygon points="130,282 130,346 190,314" fill="white" stroke="white" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Brand name -->
+  <text x="260" y="290" font-family="Inter, system-ui, sans-serif" font-size="80" font-weight="700" fill="#ffffff">Videxy</text>
+
+  <!-- Tagline -->
+  <text x="260" y="355" font-family="Inter, system-ui, sans-serif" font-size="30" fill="#8b949e">Read Article Premium – Gratis &amp; Mudah</text>
+
+  <!-- URL -->
+  <text x="260" y="410" font-family="Inter, system-ui, sans-serif" font-size="22" fill="#4B3B9D">videxy.click</text>
+
+  <!-- Bottom accent line -->
+  <rect y="622" width="1200" height="6" fill="#4B3B9D"/>
+</svg>
+
